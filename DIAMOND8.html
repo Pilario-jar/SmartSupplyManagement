@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Management</title>
+    <link href='style.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="loading">
+        <div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+		<div class="obj"></div>
+   </div>
+ <header>
+ <h1 align="center"> Welcome to Supply Management</h1>
+ </header>
+ <ul>
+ <li><a>GRADE 7</a>
+	<ul>
+		<li><a href="STE7.html">STE </a></li>
+		<li><a href="ICT7.html">ICT </a></li>
+		<li><a href="SAMPAGUITA7.html">SAMPAGUITA </a></li>
+		<li><a href="ROSE7.html">ROSE </a></li>
+		<li><a href="TULIPS7.html">TULIPS </a></li>
+		<li><a href="CAMMELIA7.html">CAMMELIA </a></li>
+	</ul>
+	</li>
+ <li><a>GRADE 8</a>
+	<ul>
+		<li><a href="STE8.html">STE </a></li>
+	    <li><a href="ICT8.html">ICT</a></li>
+	    <li><a href="DIAMOND8.html">DIAMOND</a></li>
+	    <li><a href="RUBY8.html">RUBY</a></li>
+	    <li><a href="SAPPHIRE8.html">SAPPHIRE</a></li>
+	</ul>
+	</li>
+ <li><a>GRADE 9</a>
+	<ul>
+		<li><a href="STE9.html">STE </a></li>
+	    <li><a href="ICT9.html">ICT</a></li>
+	    <li><a href="EARTH9.html">EARTH</a></li>
+	    <li><a href="JUPITER9.html">JUPITER</a></li>
+	    <li><a href="MERCURY9.html">MERCURY</a></li>
+	    <li><a href="NEPTUNE9.html">NEPTUNE</a></li>
+	</ul>
+	</li>
+
+  <li><a>GRADE 10</a>
+	<ul>
+		<li><a href="STE10.html">STE </a></li>
+	    <li><a href="ICT10.html">ICT</a></li>
+	    <li><a href="ZEUS10.html">ZEUS</a></li>
+	    <li><a href="ATHENA10.html">ATHENA</a></li>
+	    <li><a href="EROS10.html">EROS</a></li>
+	    <li><a href="HERA10.html">HERA</a></li>
+	</ul>
+	</li>
+		<li><a>GRADE 11</a>
+	<ul>
+		<li><a href="STEM11.html">STEM </a></li>
+	    <li><a href="ABM11.html">ABM</a></li>
+	    <li><a href="HUMMS11(A).html">HUMMS(A)</a></li>
+	    <li><a href="HUMMS11(B).html">HUMMS(B)</a></li>
+	    <li><a href="TVL11.html">TVL</a></li>
+	</ul>
+	</li>
+	 <li><a>GRADE 12</a>
+	<ul>
+		<li><a href="STEM12.html">STEM </a></li>
+	    <li><a href="ABM12.html">ABM</a></li>
+	    <li><a href="HUMMS12.html">HUMMS</a></li>
+	    <li><a href="TVL12.html">TVL</a></li>
+	</ul>
+ </li>
+</ul>
+    <div class="slider">
+    </div>
+
+    <div class="container">
+        <p class="supply">Chairs: <span id="chairs">10</span></p>
+        <button class="button increase" onclick="updateSupply('chairs', 1)">+</button>
+        <button class="button decrease" onclick="updateSupply('chairs', -1)">-</button>
+        
+        <p class="supply">Modules: <span id="modules">20</span></p>
+        <button class="button increase" onclick="updateSupply('modules', 1)">+</button>
+        <button class="button decrease" onclick="updateSupply('modules', -1)">-</button>
+        
+        <p class="supply">Electric Fan: <span id="fan">5</span></p>
+        <button class="button increase" onclick="updateSupply('fan', 1)">+</button>
+        <button class="button decrease" onclick="updateSupply('fan', -1)">-</button>
+        
+        <p class="supply">Walis-Tambo: <span id="broom">8</span></p>
+        <button class="button increase" onclick="updateSupply('broom', 1)">+</button>
+        <button class="button decrease" onclick="updateSupply('broom', -1)">-</button>
+        
+        <p class="supply">Dust Pan: <span id="dustpan">12</span></p>
+        <button class="button increase" onclick="updateSupply('dustpan', 1)">+</button>
+        <button class="button decrease" onclick="updateSupply('dustpan', -1)">-</button>
+        
+        <p>Last Updated: <span id="timestamp">Never</span></p>
+    </div>
+    <script>
+        function updateSupply(item, change) {
+            let countElement = document.getElementById(item);
+            let timestampElement = document.getElementById('timestamp');
+            let currentCount = parseInt(countElement.innerText);
+            
+            if (currentCount + change >= 0) {
+                countElement.innerText = currentCount + change;
+                let now = new Date();
+                timestampElement.innerText = now.toLocaleString();
+            }
+        }
+    </script>
+</body>
+</html>
