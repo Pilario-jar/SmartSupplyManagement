@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            margin: 5px 0;
+            background: #444;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background: #555;
+        }
+        /* Content section */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px gray;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            cursor: pointer;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #clearBtn {
+            background: #dc3545;
+        }
+        #clearBtn:hover {
+            background: #c82333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        li {
+            background: #eee;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#" onclick="showPage('home')">🏠 Home</a>
+        <a href="#" onclick="showPage('suggestions')">📝 Submit Suggestion</a>
+        <a href="#" onclick="showPage('viewSuggestions')">📋 View Suggestions</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Home Page -->
+        <div id="home" class="container">
+            <h2>Welcome to the Suggestions Box</h2>
+            <p>Use the menu to navigate.</p>
+        </div>
+
+        <!-- Suggestions Box -->
+        <div id="suggestions" class="container" style="display: none;">
+            <h2>Submit a Suggestion</h2>
+            <textarea id="suggestionInput" placeholder="Enter your suggestion..."></textarea>
+            <button onclick="submitSuggestion()">Submit Suggestion</button>
+        </div>
+
+        <!-- View Suggestions Page -->
+        <div id="viewSuggestions" class="container" style="display: none;">
+            <h2>All Suggestions</h2>
+            <ul id="suggestionList"></ul>
+            <button id="clearBtn" onclick="clearSuggestions()">Clear All</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to switch between pages
+        function showPage(pageId) {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("suggestions").style.display = "none";
+            document.getElementById("viewSuggestions").style.display = "none";
+
+            document.getElementById(pageId).style.display = "block";
+        }
+
+        // Function to submit a suggestion
+        function submitSuggestion() {
+            let input = document.getElementById("suggestionInput").value.trim();
+            
+            if (input === "") {
+                alert("Please enter a suggestion before submitting.");
+                return;
+            }
+
+            let list = document.getElementById("suggestionList");
+            let listItem = document.createElement("li");
+            listItem.textContent = input;
+            list.appendChild(listItem);
+
+            document.getElementById("suggestionInput").value = "";
+
+            // Show a browser notification (if permission granted)
+            if (Notification.permission === "granted") {
+                new Notification("New Suggestion Received!", {
+                    body: input,
+                    icon: "https://cdn-icons-png.flaticon.com/512/190/190411.png"
+                });
+            }
+        }
+
+        // Function to clear suggestions
+        function clearSuggestions() {
+            document.getElementById("suggestionList").innerHTML = "";
+        }
+
+        //Request notification permission on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            if ("Notification" in window) {
+                Notification.requestPermission();
+            }
+        });
+    </script>
+
+</body>
+</html>

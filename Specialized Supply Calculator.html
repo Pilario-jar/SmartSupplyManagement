@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Supply Calculator</h2>
+    
+    <div class="input-group">
+        <label for="itemName">Item Name</label>
+        <input type="text" id="itemName" placeholder="Enter item name">
+    </div>
+
+    <div class="input-group">
+        <label for="unitPrice">Unit Price ($)</label>
+        <input type="number" id="unitPrice" placeholder="Enter unit price" step="0.01">
+    </div>
+
+    <div class="input-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" placeholder="Enter quantity" min="1">
+    </div>
+
+    <button onclick="calculateTotal()">Calculate Total Cost</button>
+
+    <div class="result" id="result">
+        <!-- Result will be displayed here -->
+    </div>
+</div>
+
+<script>
+    function calculateTotal() {
+        // Get user inputs
+        const itemName = document.getElementById('itemName').value.trim();
+        const unitPrice = parseFloat(document.getElementById('unitPrice').value);
+        const quantity = parseInt(document.getElementById('quantity').value);
+
+        // Validate inputs
+        if (!itemName || isNaN(unitPrice) || isNaN(quantity) || quantity <= 0 || unitPrice <= 0) {
+            document.getElementById('result').innerHTML = "Please enter valid item details.";
+            return;
+        }
+
+        // Calculate total cost
+        const totalCost = unitPrice * quantity;
+
+        // Display result
+        document.getElementById('result').innerHTML = `
+            <strong>${itemName}</strong><br>
+            Unit Price: $${unitPrice.toFixed(2)}<br>
+            Quantity: ${quantity}<br>
+            <strong>Total Cost: $${totalCost.toFixed(2)}</strong>
+        `;
+    }
+</script>
+
+</body>
+</html>
